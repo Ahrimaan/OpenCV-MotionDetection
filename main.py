@@ -14,7 +14,8 @@ parser.add_argument('--fps', help='which frameraete to record (normal value 24)'
 parser.add_argument('--format', help='which format for recording (DIVX, XVID, MJPG, X264, WMV1, WMV2)')
 parser.add_argument('--width', help='Resolution Webcam width')
 parser.add_argument('--height', help='Resolution Webcam height')
-parser.add_argument('--showvideo', help='Want to see what the camera see ? (true or false')
+parser.add_argument('--showvideo', help='Want to see what the camera see ? (true or false)')
+parser.add_argument('--saveseq', help='Do you want to save as video or as sequence of jpg')
 
 args = parser.parse_args()
 cap = cv2.VideoCapture(int(args.camid))
@@ -58,7 +59,7 @@ while cap.isOpened():
     clearFrame = None
     for contour in contours:
         (x, y, w, h) = cv2.boundingRect(contour)
-        
+        non_motion_counter = int(args.nomotionframes)
         if cv2.contourArea(contour) < int(args.conturarea):
             continue
         motion_detected = True
@@ -74,8 +75,7 @@ while cap.isOpened():
             writeFrame(frame2)
 
     if motion_detected is not True:
-        if non_motion_counter > 0:
-            non_motion_counter -= 1
+        non_motion_counter -= 1
         if non_motion_counter == 0 and videoWriter is not None:
             videoWriter.release()
             videoWriter = None

@@ -27,7 +27,7 @@ how many motion wait before recording stops
 how many conturs to use if motion is detected (usually 900)
 
 ### --fps
-which frameraete to record , you have to experiment around depedning on your cam (i have 10 as a default)
+which framerate to write the file , you have to experiment around depending on your cam (i have 15 as a default)
 
 ### --format 
 which format for recording (DIVX, XVID, MJPG, X264, WMV1, WMV2)

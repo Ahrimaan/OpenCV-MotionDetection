@@ -1,1 +1,1 @@
-python main.py --camid 2 --motionframes 5 --nomotionframes 20 --conturarea 700 --fps 24 --format MJPG --width 1024 --height 768
+python main.py --camid 2 --motionframes 5 --nomotionframes 60 --conturarea 700 --fps 10 --format MJPG --width 1024 --height 768

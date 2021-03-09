@@ -58,7 +58,7 @@ def detectMotion(frame1, contours):
             
             if cv2.contourArea(contour) < int(args.conturarea):
                 continue
-            
+            motion_detected=True
             cv2.rectangle(frame1, (x, y), (x+w, y+h), (0, 255, 0), 2)
             cv2.putText(frame1, "Status: {}".format('Movement'), (10, 20), cv2.FONT_HERSHEY_SIMPLEX,
                         1, (0, 0, 255), 3)
